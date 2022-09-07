@@ -4,11 +4,11 @@ import Head from './Head';
 import Navbar from './Navbar';
 import Search from './Search';
 
-export const Header = ({cartItem}) => {
+export const Header = () => {
   return (
     <>
     <Head/>
-    <Search cartItem={cartItem}/>
+    <Search />
     <Navbar/>
     </>
   )

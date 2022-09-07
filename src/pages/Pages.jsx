@@ -9,15 +9,15 @@ import Wrapper from '../components/wrapper/Wrapper'
 import Footer from '../common/footer/Footer'
 
 
-const Pages = ({productItems , cartItem , addToCart , shopItems}) => {
+const Pages = () => {
   return (
     <>
-    <Home cartItem={cartItem}/>
-    <FlashDeals productItems={productItems} addToCart={addToCart}/>
+    <Home />
+    <FlashDeals />
     <TopCate/>
     <NewArrivals/>
     <Discount/>
-    <Shop shopItems={shopItems} addToCart={addToCart} />
+    <Shop />
     <Wrapper/>
     <Footer/>
     

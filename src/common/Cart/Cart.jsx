@@ -1,20 +1,26 @@
 import React from 'react'
+import { useContext } from 'react'
+import AuthContext from '../../context/AuthContext'
 import './style.css'
 
-const Cart = ({cartItem,addToCart,decreaseQty}) => {
+const Cart = () => {
+
+
+  const context = useContext(AuthContext)
+  const { addToCart , cartItem ,decreaseQty} = context
 
   const totalPrice = cartItem.reduce((price, item) => price + item.qty * item.price, 0)
-  
+  console.log(totalPrice);
   return (
     <section className='cart-items'>
         <div className="container d_flex">
             <div className="cart-details">
-                {cartItem.length === 0 && <h1 className='no-items product'>No items are add to Cart
+                {cartItem.length.length === 0 && <h1 className='no-items product'>No items are add to Cart
                 </h1>}
-                {cartItem.map((item)=>{
+                {cartItem.map((item,index)=>{
                   const productQty = item.price * item.qty
                   return (
-                    <div className="cart-list product d_flex">
+                    <div key={index} className="cart-list product d_flex">
                       <div className="img">
                         <img src={item.cover} alt="" />
                       </div>

@@ -1,12 +1,21 @@
 import React from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../components/assets/images/logo.svg'
+import AuthContext from '../../context/AuthContext'
 
-const Search = ({cartItem}) => {
+
+
+const Search = () => {
     window.addEventListener('scroll',function(){
-        const search = this.document.querySelector('.search');
+        const search = document.querySelector('.search');
         search.classList.toggle('active', window.scrollY > 100 )
     })
+    
+const context = useContext(AuthContext)
+const {cartItem} = context
+
+    
   return (
     <>
     <section className='search  '>
@@ -24,7 +33,7 @@ const Search = ({cartItem}) => {
                 <div className="cart">
                     <Link to={'/cart'}>
                         <i className="fa fa-shopping-bag icon-circle"></i>
-                        <span>{cartItem.length === 0 ? '0' : cartItem.length}</span>
+                        <span>{cartItem.length === 0 ? '0' :cartItem.length}</span>
                     </Link>
                 </div>
             </div>

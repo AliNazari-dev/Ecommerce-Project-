@@ -3,6 +3,8 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useEffect } from "react"
+import { useContext } from "react"
+import AuthContext from "../../context/AuthContext"
 
 const SampleNextArrow = (props) => {
   const { onClick } = props
@@ -24,11 +26,15 @@ const SamplePrevArrow = (props) => {
     </div>
   )
 }
-const FlashCard = ({ productItems, addToCart }) => {
+const FlashCard = () => {
   const [count, setCount] = useState(0)
   const increment = () => {
     setCount(c=>c+1)
   }
+  const context = useContext(AuthContext)
+  const { productItems , addToCart } = context
+
+  
 
   const settings = {
     dots: false,

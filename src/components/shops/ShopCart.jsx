@@ -1,14 +1,22 @@
 import React, { useState } from "react"
+import { useContext } from "react"
+import AuthContext from "../../context/AuthContext"
 
-const ShopCart = ({ shopItems, addToCart }) => {
+const ShopCart = () => {
   const [count, setCount] = useState(0)
   const increment = () => {
     setCount(count + 1)
   }
 
+  const context = useContext(AuthContext)
+  const { addToCart ,shopItems } = context
+  
+  
+
+
   return (
     <>
-      {shopItems.map((shopItems, index) => {
+      {shopItems.map((shopItems, index ) => {
         return (
           <div className='box' key={index}>
             <div className='product mtop'>
